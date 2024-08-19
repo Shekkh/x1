@@ -234,9 +234,8 @@ async def hunterusername(event):
                     )
                 )
                 await event.client.send_message(
-                    event.chat_id,
-                    "https://t.me/R_M_T/582",
-                    caption=f''The test is over 🔔 /n ⌯ تم الصيد اليوزر @{username} 🐊 /n ⌯ Team x1 : @B_BzB 🫡",
+                    ch,
+                    f"The test is over 🔔 /n ⌯ تم الصيد اليوزر @{username} 🐊 /n ⌯ Team x1 : @B_BzB 🫡 اليوزر @{username}",
                 )
                 break
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
