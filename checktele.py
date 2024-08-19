@@ -1,30 +1,19 @@
-# by: t.me/Mikthon
+# by: t.me/p8_pp  ~ t.me/lllllj
 
 import random
-import requests
 
+import requests
 import telethon
 from telethon.sync import functions
 from user_agent import generate_user_agent
-from help import *
-import requests
-from user_agent import *
-from help import *
-from config import *
-from threading import Thread
-import threading
-import asyncio
-from telethon import events
 
-a = 'qwrtyuiopassdfghklzxcvbnm'
-b = '123456789'
-e = 'qwrtyuiopassdfghjklzxcvbnm123456789'
+from jmub import jmub
 
-banned = []
-with open("banned.txt", "r") as f:
-    f = f.read().split()
-    banned.append(f)
-trys, trys2 = [0], [0]
+a = "qwertyuiopassdfghjklzxcvbnm"
+b = "1234567890"
+e = "qwertyuiopassdfghjklzxcvbnm1234567890"
+
+trys, trys2, trys3 = [0], [0], [0]
 isclaim = ["off"]
 isauto = ["off"]
 
@@ -51,193 +40,204 @@ def check_user(username):
 
 
 def gen_user(choice):
-    if choice == "سباعي":
+    if choice == "ثلاثيات":
+        c = random.choices(a)
+        d = random.choices(b)
+        s = random.choices(e)
+        f = [c[0], "_", d[0], "_", s[0]]
+        username = "".join(f)
+
+    elif choice == "خماسي":
+        c = d = random.choices(a)
+        d = random.choices(b)
+        f = [c[0], c[0], c[0], c[0], d[0]]
+        random.shuffle(f)
+        username = "".join(f)
+
+    elif choice == "خماسي حرفين":
+        c = random.choices(a)
+        d = random.choices(e)
+        f = [c[0], d[0], c[0], c[0], d[0]]
+        random.shuffle(f)
+        username = "".join(f)
+
+    elif choice == "سداسيات":
         c = d = random.choices(a)
         d = random.choices(e)
-        f = [c[0], d[0], d[0], d[0], d[0], d[0], d[0]]
+        f = [c[0], c[0], c[0], c[0], c[0], d[0]]
         random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(e)
-            f = [c[0], c[0], c[0], c[0], c[0], c[0], d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    elif choice == "ثماني":
-        c = d = random.choices(e)
-        d = random.choices(a)
-        f = [c[0], d[0], d[0], d[0], d[0], d[0], d[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-    elif choice == "ثمانيات":
+        username = "".join(f)
+
+    elif choice == "سداسي حرفين":
         c = d = random.choices(a)
-        d = random.choices(e)
-        f = [c[0], d[0], d[0], d[0], d[0], d[0], d[0], d[0]]
+        d = random.choices(b)
+        f = [c[0], d[0], c[0], c[0], c[0], d[0]]
         random.shuffle(f)
-        username = ''.join(f)
+        username = "".join(f)
+
     elif choice == "سباعيات":
-        c = d = random.choices(e)
-        d = random.choices(e)
-        f = [c[0], c[0], d[0], d[0], d[0], d[0], d[0]]
+        c = d = random.choices(a)
+        d = random.choices(b)
+        f = [c[0], c[0], c[0], c[0], d[0], c[0], c[0]]
         random.shuffle(f)
-        username = ''.join(f)
+        username = "".join(f)
 
-    elif choice == "سداسي":
-        c = d = random.choices(e)
-        d = random.choices(e)
-        f = [c[0], c[0], "_", c[0], c[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-
-    elif choice == "بدايه":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d = str(''.join((random.choice(e) for i in range(1))))
-        f1 = c+"_"+d+d+d
-        f2 = c+"_"+d+c+c
-        f3 = c+"_"+c+d+c
-        f4 = c+"_"+c+c+d
-        f = f1,f2,f3,f4
-        f = random.choice(f)
-        username = f
-
-    elif choice == "وسط":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d = str(''.join((random.choice(e) for i in range(1))))
-        f1 = c+d+"_"+d+d
-        f2 = c+d+"_"+c+c
-        f3 = c+c+"_"+d+c
-        f4 = c+c+"_"+c+d
-        f = f1,f2,f3,f4
-        f = random.choice(f)
-        username = f
-        
-    elif choice == "خير":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d = str(''.join((random.choice(e) for i in range(1))))
-        f1 = c+d+d+"_"+d
-        f2 = c+d+c+"_"+c
-        f3 = c+c+d+"_"+c
-        f4 = c+c+c+"_"+d
-        f = f1,f2,f3,f4
-        f = random.choice(f)
-        username = f
-        
-    elif choice == "تيست":
+    elif choice == "بوتات":
         c = random.choices(a)
         d = random.choices(e)
         s = random.choices(e)
-        f = [c[0], s[0], "_", c[0], s[0], d[0]]
-        username = ''.join(f)
-        username = username+'bot'
+        f = [c[0], s[0], d[0]]
+        username = "".join(f)
+        username = username + "bot"
+
+    elif choice == "تيست":
+        c = d = random.choices(a)
+        d = random.choices(b)
+        f = [c[0], d[0], c[0], d[0], d[0], c[0], c[0], d[0], c[0], d[0]]
+        random.shuffle(f)
+        username = "".join(f)
     else:
-        return "error"
+        raise ValueError("Invalid choice for username generation.")
     return username
 
 
-@eighthon.on(events.NewMessage(outgoing=True, pattern=r"\.الصيد"))
+@eighthon.ar_cmd(pattern="الصيد")
 async def _(event):
     await event.edit(
-        '''
-**-- -- -- -- -- -- -- -- --
- الانواع :
- -- -- -- -- - 
- سباعي
- sxxxxxx - s888888 - ssssss8
- -- -- -- -- -- -- -- -- -- -- --
-  ثماني
-  sxxxxxxx - sssssss7
- -- -- -- -- -- 
- ثمانيات
- s7777777 - mnnnnnnn
-  -- -- -- -- --  
- سباعيات
- xxccccc - xx88888
- -- -- -- -- --
- سداسي
- x_bbbbb - s_8888
- -- -- -- -- -- 
- بدايه
- c_888 - c_1cc - c_c1c - c_cc1
- -- -- -- -- -- 
- وسط
- sx_xx - sx_ss - ss_6s - ss_s7
- -- -- -- -- -- 
- خير
- axx_x - afa_a - aaf_a - aaa_x 
-  -- -- -- -- -- 
-  التجربه السورس 
-  `تيست`
-   -- -- -- -- -- 
-   طريقه الصيد هيه كالتالي
- - .صيد + نوع الصيد تكتب الاسم 
-هوه ينشأ قناة تلقائي ويفحص بيها
- -- -- -- -- -- -- -- -- -- -- -- -- --  -- -- -- -- -- -- -- -- -- -- -- 
-مثال: .صيد ثلاثي
- ---------------------------------------------------------------------- — — — —
- الامر:  `.صيد` + النوع
- - يقوم بصيد معرفات عشوائية حسب النوع
+        """
+أوامر الصيد الخاصة بسورس جمثون : 
 
- ٴ— — — — — — — — — —
- الامر:   `.حالة الصيد`
- • لمعرفة عدد المحاولات للصيد
+ٴ— — — — — — — — — —
 
-@lllllj **
+النوع :(  سداسي حرفين/ ثلاثيات/ سداسيات/ بوتات/ خماسي حرفين/خماسي /سباعيات )
 
-'''
+الامر:  `.صيد` + النوع
+- يقوم بصيد معرفات عشوائية حسب النوع
+
+الامر:  `تثبيت` + معرف
+* وظيفة الامر : يقوم بالتثبيت على المعرف عندما يصبح متاح يأخذه
+
+ٴ— — — — — — — — — —
+الامر:   `.حالة الصيد`
+• لمعرفة عدد المحاولات للصيد
+
+الامر:  `.حالة التثبيت`
+• لمعرفة عدد المحاولات للصيد
+
+@jmthon  - channle userbot 
+
+"""
     )
 
-@eighthon.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
-async def _(event):
-    if ispay2[0] == "yes":
-        await event.edit(tele_checker2)
-    else:
-        await event.edit("يجب الدفع لاستعمال هذا الامر !")
 
-@eighthon.on(events.NewMessage(outgoing=True, pattern=r"\.صيد"))
-async def hunterusername(event):
-    msg = event.text.split()
-    choice = str(msg[1])
-    try:
-        ch = str(msg[2])
-        if "@" in ch:
-            ch = ch.replace("@", "")
-        await event.edit(f"حسناً سيتم بدء الصيد في @{ch} .")
-    except:
-        try:
-            ch = await eighthon(
-                functions.channels.CreateChannelRequest(
-                    title="صيد معرفات - @lllllj",
-                    about="تم الصيد - Selling IDs : @lllllj",
-                )
-            )
-            ch = ch.updates[1].channel_id
-            await event.edit(f"**تم انشاء القناة بنجاح .. سيتم صيد نوع {choice} !**")
-        except Exception as e:
-            await eighthon.send_message(
-                event.chat_id, f"خطأ في انشاء القناة , الخطأ**-  : {str(e)}**"
-            )
+@eighthon.ar_cmd(pattern="صيد بوتات")
+async def huntbot(event):
+    await event.edit(f"**- تم تفعيل الصيد بنجاح الان**")
     isclaim.clear()
     isclaim.append("on")
-    for i in range(19000000):
+    botmod = True
+    while botmod:
+        username = gen_user("بوتات")
+        isav = check_user(username)
+        if isav == True:
+            try:
+                await jmub.send_message("@botfather", "/newbot")
+                await jmub.send_message("@botfather", "@jmthon - @R0R77 🐊")
+                await jmub.send_message("@botfather", username)
+                await event.client.send_file(
+                    event.chat_id,
+                    "https://t.me/jmthongif/2",
+                    caption="🐊 jmthon the best 🐊\n- - - - - - - - - - - - - - - - - - - - - - - -\n- UserName: ❲ @{} ❳\n- ClickS: ❲ {} ❳\n- Save: ❲ bot ❳\n- - - - - - - - - - - - - - - - - - - - - - - -\nThE KiNgS ❲ @jmthon - @R0R77 ❳ ".format(
+                        username, trys3
+                    ),
+                )
+                await event.client.send_message(
+                    "@r0r77", f"- Done : @{username} !\n- By : @R0R77 - @JMTHON !"
+                )
+                botmod = False
+                break
+            except telethon.errors.rpcerrorlist.UsernameInvalidError:
+                pass
+            except telethon.errors.FloodError as e:
+                await jmub.send_message(
+                    event.chat_id,
+                    f"للاسف تبندت , مدة الباند**-  ({e.seconds}) ثانية .**",
+                )
+                botmod = False
+                break
+            except Exception as eee:
+                if "the username is already" in str(eee):
+                    pass
+                if "USERNAME_PURCHASE_AVAILABLE" in str(eee):
+                    pass
+                else:
+                    await jmub.send_message(
+                        event.chat_id,
+                        f"""- خطأ مع @{username} , الخطأ :{str(eee)}""",
+                    )
+                    botmod = False
+                    break
+        else:
+            pass
+        trys3[0] += 1
+    isclaim.clear()
+    isclaim.append("off")
+
+
+@eighthon.ar_cmd(pattern="صيد (.*)")
+async def hunterusername(event):
+    if event.text[1:].startswith("صيد بوتات"):
+        return
+    choice = str(event.pattern_match.group(1))
+    await event.edit(f"**- تم تفعيل الصيد بنجاح الان**")
+    try:
+        ch = await jmub(
+            functions.channels.CreateChannelRequest(
+                title="JMTHON HUNTER - صيد جمثون",
+                about="This channel to hunt username by - @jmthon ",
+            )
+        )
+        ch = ch.updates[1].channel_id
+    except Exception as e:
+        await jmub.send_message(
+            event.chat_id, f"خطأ في انشاء القناة , الخطأ**-  : {str(e)}**"
+        )
+        sedmod = False
+
+    isclaim.clear()
+    isclaim.append("on")
+    sedmod = True
+    while sedmod:
         username = gen_user(choice)
         if username == "error":
-            await event.edit("** يرجى وضع النوع بشكل صحيح**.")
+            await event.edit("**- يرجى وضع النوع بشكل صحيح**")
             break
         isav = check_user(username)
         if isav == True:
             try:
-                await eighthon(
+                await jmub(
                     functions.channels.UpdateUsernameRequest(
                         channel=ch, username=username
                     )
                 )
-                await event.client.send_message(
+                await event.client.send_file(
                     event.chat_id,
-                    "https://t.me/R_M_T/582",
-                    f"The test is over 🔔 /n ⌯ تم الصيد اليوزر @{username} 🐊 /n ⌯ Team x1 : @B_BzB 🫡",
+                    "https://t.me/jmthongif/2",
+                    caption="🐊 jmthon the best 🐊\n- - - - - - - - - - - - - - - - - - - - - - - -\n- UserName: ❲ @{} ❳\n- ClickS: ❲ {} ❳\n- Type: {}\n- Save: ❲ Chaneel ❳\n- - - - - - - - - - - - - - - - - - - - - - - -\nThE KiNgS ❲ @jmthon - @R0R77 ❳ ".format(
+                        username, trys, choice
+                    ),
                 )
+                await event.client.send_file(
+                    ch,
+                    "https://t.me/jmthongif/2",
+                    caption="🐊 jmthon the best 🐊\n- - - - - - - - - - - - - - - - - - - - - - - -\n- UserName: ❲ @{} ❳\n- ClickS: ❲ {} ❳\n- Type: {}\n- Save: ❲ Chaneel ❳\n- - - - - - - - - - - - - - - - - - - - - - - -\nThE KiNgS ❲ @jmthon - @R0R77 ❳ ".format(
+                        username, trys, choice
+                    ),
+                )
+                await event.client.send_message(
+                    "@r0r77", f"- Done : @{username} !\n- By : @R0R77 - @JMTHON !"
+                )
+                sedmod = False
                 break
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
                 pass
@@ -245,105 +245,124 @@ async def hunterusername(event):
                 if "(caused by UpdateUsernameRequest)" in str(baned):
                     pass
             except telethon.errors.FloodError as e:
-                await eighthon.send_message(
-                    event.chat_id,
-                    f"للاسف تبندت , مدة الباند**-  ({e.seconds}) ثانية .**",
+                await jmub.send_message(
                     event.chat_id,
                     f"للاسف تبندت , مدة الباند**-  ({e.seconds}) ثانية .**",
                 )
+                sedmod = False
                 break
             except Exception as eee:
                 if "the username is already" in str(eee):
                     pass
+                if "USERNAME_PURCHASE_AVAILABLE" in str(eee):
+                    pass
                 else:
-                    await eighthon.send_message(
+                    await jmub.send_message(
                         event.chat_id,
                         f"""- خطأ مع @{username} , الخطأ :{str(eee)}""",
                     )
+                    sedmod = False
                     break
         else:
             pass
         trys[0] += 1
     isclaim.clear()
     isclaim.append("off")
-    await event.client.send_message(event.chat_id, "انتهاء الفحص تم صيد معرف #x5")
 
 
-@eighthon.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت"))
+@eighthon.ar_cmd(pattern="تثبيت (.*)")
 async def _(event):
     msg = event.text.split()
     try:
         ch = str(msg[2])
+        ch = ch.replace("@", "")
         await event.edit(f"حسناً سيتم بدء التثبيت في**-  @{ch} .**")
     except:
         try:
-            ch = await eighthon(
+            ch = await jmub(
                 functions.channels.CreateChannelRequest(
-                    title="صيد يوزرات @lllllj ",
-                    about="تم الصيد يم @lllllj",
+                    title="JMTHON HUNTER - تثبيت جمثون",
+                    about="This channel to hunt username by - @jmthon ",
                 )
             )
             ch = ch.updates[1].channel_id
             await event.edit(f"**- تم بنجاح بدأ التثبيت**")
         except Exception as e:
-            await eighthon.send_message(
+            await jmub.send_message(
                 event.chat_id, f"خطأ في انشاء القناة , الخطأ : {str(e)}"
             )
     isauto.clear()
     isauto.append("on")
     username = str(msg[1])
 
-    for i in range(1000000000000):
+    swapmod = True
+    while swapmod:
         isav = check_user(username)
         if isav == True:
             try:
-                await eighthon(
+                await jmub(
                     functions.channels.UpdateUsernameRequest(
                         channel=ch, username=username
                     )
                 )
-                await event.client.send_message(
-                    event.chat_id,
-                    f"- Done : @{username} !\n-  !\n- Hunting Log {trys2[0]}",
+                await event.client.send_file(
+                    ch,
+                    "https://t.me/jmthongif/2",
+                    caption="🐊 jmthon the best 🐊\n- - - - - - - - - - - - - - - - - - - - - - - -\n- UserName: ❲ @{} ❳\n- ClickS: ❲ {} ❳\n- Save: ❲ Chaneel ❳\n- - - - - - - - - - - - - - - - - - - - - - - -\nThE KiNgS ❲ @jmthon - @R0R77 ❳ ".format(
+                        username, trys2
+                    ),
                 )
+                await event.client.send_file(
+                    event.chat_id,
+                    "https://t.me/jmthongif/2",
+                    caption="🐊 jmthon the best 🐊\n- - - - - - - - - - - - - - - - - - - - - - - -\n- UserName: ❲ @{} ❳\n- ClickS: ❲ {} ❳\n- Save: ❲ Chaneel ❳\n- - - - - - - - - - - - - - - - - - - - - - - -\nThE KiNgS ❲ @jmthon - @R0R77 ❳ ".format(
+                        username, trys2
+                    ),
+                )
+                await event.client.send_message(
+                    "@r0r77",
+                    f"- Done : @{username} !\n- By : @R0R77 - @JMTHON !\n- Hunting Log {trys2}",
+                )
+                swapmod = False
                 break
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
                 await event.client.send_message(
                     event.chat_id, f"المعرف **-  @{username} غير صالح . **"
                 )
+                swapmod = False
                 break
             except telethon.errors.FloodError as e:
-                await eighthon.send_message(
+                await jmub.send_message(
                     event.chat_id, f"للاسف تبندت , مدة الباند ({e.seconds}) ثانية ."
                 )
+                swapmod = False
                 break
             except Exception as eee:
-                await eighthon.send_message(
+                await jmub.send_message(
                     event.chat_id,
                     f"""خطأ مع {username} , الخطأ :{str(eee)}""",
                 )
+                swapmod = False
                 break
         else:
             pass
         trys2[0] += 1
 
-        await asyncio.sleep(1.3)
     isclaim.clear()
     isclaim.append("off")
-    await eighthon.send_message(event.chat_id, "**- تم الانتهاء من التثبيت بنجاح**")
 
 
-@eighthon.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
+@eighthon.ar_cmd(pattern="حالة الصيد")
 async def _(event):
     if "on" in isclaim:
-        await event.edit(f"** الصيد وصل لـ({trys[0]}) من المحاولات**")
+        await event.edit(f"**- الصيد وصل لـ({trys[0]}) **من المحاولات")
     elif "off" in isclaim:
-        await event.edit("** الصيد  لا يعمل .**")
+        await event.edit("**- الصيد بالاصل لا يعمل .**")
     else:
         await event.edit("- لقد حدث خطأ ما وتوقف الامر لديك")
 
 
-@eighthon.on(events.NewMessage(outgoing=True, pattern=r"\.حالة التثبيت"))
+@eighthon.ar_cmd(pattern="حالة التثبيت")
 async def _(event):
     if "on" in isauto:
         await event.edit(f"**- التثبيت وصل لـ({trys2[0]}) من المحاولات**")
@@ -351,91 +370,3 @@ async def _(event):
         await event.edit("**- التثبيت بالاصل لا يعمل .**")
     else:
         await event.edit("-لقد حدث خطأ ما وتوقف الامر لديك")
-@eighthon.on(events.NewMessage(outgoing=True, pattern=r"\.ت (.*)"))
-async def _(event):
-    if ispay2[0] == "yes":
-        trys = 0
-        msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
-        if msg[0] == "تلقائي":  # تثبيت تلقائي عدد يوزر قناة
-            isauto.clear()
-            isauto.append("on")
-            msg = ("".join(event.text.split(maxsplit=2)[2:])).split(" ", 2)
-            username = str(msg[2])
-            ch = str(msg[1])
-            await event.edit(f"حسناً سأحاول تثبيت `{username}` على `{ch}` , بعدد `{msg[0]}` من المحاولات !")
-
-            @eighthon.on(events.NewMessage(outgoing=True, pattern=r"\.حالة ت "))
-            async def _(event):
-                if "on" in isauto:
-                    msg = await event.edit(f"التثبيت وصل لـ({trys}) من المحاولات")
-                elif "off" in isauto:
-                    await event.edit("لايوجد تثبيت شغال !")
-                else:
-                    await event.edit("خطأ")
-            for i in range(int(msg[0])):
-                if ispay2[0] == 'no':
-                    break
-                t = Thread(target=lambda q, arg1: q.put(
-                    check_user(arg1)), args=(que, username))
-                t.start()
-                t.join()
-                isav = que.get()
-                if "Available" in isav:
-                    try:
-                        await eighthon(functions.channels.UpdateUsernameRequest(
-                            channel=ch, username=username))
-                        await event.client.send_message(event.chat_id, f'''** 
-𝙷𝚄𝙽𝚃𝙸𝙽𝙶 (@{username})
-× ᴄʟɪᴄᴋs ↬  {trys}
-lD: @Max985 / @P8_PP × @HFFHH **
-    ''')
-                        break
-                    except telethon.errors.rpcerrorlist.UsernameInvalidError:
-                        await event.client.send_message(event.chat_id, f"مبند `{username}` ❌❌")
-                        break
-                    except Exception as eee:
-
-                        await eighthon.send_message(event.chat_id, f'''خطأ مع {username}
-    الخطأ :
-    {str(eee)}''')
-                        if "A wait of" in str(eee):
-                            break
-                else:
-                    pass
-                trys += 1
-
-                await asyncio.sleep(0.1)
-            trys = ""
-            isclaim.clear()
-            isclaim.append("off")
-            await eighthon.send_message(event.chat_id, "تم الانتهاء من التثبيت التلقائي")
-        if msg[0] == "يدوي":  # تثبيت يدوي يوزر قناة
-            await event.edit(f"حسناً سأحاول تثبيت `{username}` على `{ch}` !")
-            msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
-            username = str(msg[0])
-            ch = str(msg[1])
-            try:
-                await eighthon(functions.channels.UpdateUsernameRequest(
-                    channel=ch, username=username))
-                await event.client.send_message(event.chat_id, f'''**
-𝙷𝚄𝙽𝚃𝙸𝙽𝙶 (@{username})
-× ᴄʟɪᴄᴋs ↬  {trys}
--- -- -- -- -- -- -- -- -- -- -- -- -- **
-    ''')
-            except telethon.errors.rpcerrorlist.UsernameInvalidError:
-                await event.client.send_message(event.chat_id, f"مبند `{username}` ❌❌")
-            except Exception as eee:
-                await eighthon.send_message(event.chat_id, f'''خطأ مع {username}
-    الخطأ :
-    {str(eee)}''')
-
-Threads=[] 
-for t in range(100):
-    x = threading.Thread(target=_)
-    le = threading.Thread(target=gen_user)
-    x.start()
-    le.start()
-    Threads.append(x)
-    Threads.append(le)
-for Th in Threads:
-    Th.join()
