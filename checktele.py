@@ -1,4 +1,4 @@
-# by: t.me/Mikthon
+# by: t.me/lllllj
 
 import random
 import requests
@@ -51,47 +51,31 @@ def check_user(username):
 
 
 def gen_user(choice):
-    if choice == "سباعي":
-        c = d = random.choices(a)
-        d = random.choices(e)
-        f = [c[0], d[0], d[0], d[0], d[0], d[0], d[0]]
-        random.shuffle(f)
+    if choice == "ثلاثي":
+        c = random.choices(a)
+        d = random.choices(a)
+        s = random.choices(e)
+        f = [c[0], "_", d[0], "_", s[0]]
         username = ''.join(f)
         if username in banned[0]:
-            c = d = random.choices(a)
+            c = random.choices(a)
             d = random.choices(e)
-            f = [c[0], c[0], c[0], c[0], c[0], c[0], d[0]]
-            random.shuffle(f)
+            s = random.choices(e)
+            f = [c[0], "_", d[0], "_", s[0]]
             username = ''.join(f)
         else:
             pass
-    elif choice == "ثماني":
-        c = d = random.choices(e)
-        d = random.choices(a)
-        f = [c[0], d[0], d[0], d[0], d[0], d[0], d[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-    elif choice == "ثمانيات":
-        c = d = random.choices(a)
-        d = random.choices(e)
-        f = [c[0], d[0], d[0], d[0], d[0], d[0], d[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-    elif choice == "سباعيات":
-        c = d = random.choices(e)
-        d = random.choices(e)
-        f = [c[0], c[0], d[0], d[0], d[0], d[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-
-    elif choice == "سداسي":
-        c = d = random.choices(e)
-        d = random.choices(e)
-        f = [c[0], c[0], "_", c[0], c[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-
-    elif choice == "بدايه":
+    elif choice == "مكرر":
+        c = str(''.join((random.choice(a) for i in range(1))))
+        d = str(''.join((random.choice(e) for i in range(1))))
+        f1 = c+"_"+d+"_"+d
+        f2 = c+"_"+d+"_"+c
+        f3 = c+"_"+c+"_"+d
+        f = f1,f2,f3
+        f = random.choice(f)
+        username = f
+        
+        elif choice == "رباعي":
         c = str(''.join((random.choice(a) for i in range(1))))
         d = str(''.join((random.choice(e) for i in range(1))))
         f1 = c+"_"+d+d+d
@@ -101,8 +85,8 @@ def gen_user(choice):
         f = f1,f2,f3,f4
         f = random.choice(f)
         username = f
-
-    elif choice == "وسط":
+        
+        elif choice == "رباعي2":
         c = str(''.join((random.choice(a) for i in range(1))))
         d = str(''.join((random.choice(e) for i in range(1))))
         f1 = c+d+"_"+d+d
@@ -113,7 +97,7 @@ def gen_user(choice):
         f = random.choice(f)
         username = f
         
-    elif choice == "خير":
+        elif choice == "رباعي3":
         c = str(''.join((random.choice(a) for i in range(1))))
         d = str(''.join((random.choice(e) for i in range(1))))
         f1 = c+d+d+"_"+d
@@ -121,6 +105,84 @@ def gen_user(choice):
         f3 = c+c+d+"_"+c
         f4 = c+c+c+"_"+d
         f = f1,f2,f3,f4
+        f = random.choice(f)
+        username = f
+        
+    elif choice == "رباعي4":
+        c = str(''.join((random.choice(a) for i in range(1))))
+        d = str(''.join((random.choice(e) for i in range(1))))
+        f1 = c+c+"_"+d+d
+        f2 = c+d+"_"+d+c
+        f3 = c+d+"_"+c+d
+        f = f1,f2,f3
+        f = random.choice(f)
+        username = f
+        
+    elif choice == "رباعي5":
+        c = str(''.join((random.choice(a) for i in range(1))))
+        d = str(''.join((random.choice(e) for i in range(1))))
+        f1 = c+"_"+c+d+d
+        f2 = c+"_"+d+d+c
+        f3 = c+"_"+d+c+d
+        f = f1,f2,f3
+        f = random.choice(f)
+        username = f
+
+    elif choice == "رباعي6":
+        c = str(''.join((random.choice(a) for i in range(1))))
+        d = str(''.join((random.choice(e) for i in range(1))))
+        f1 = c+c+d+"_"+d
+        f2 = c+d+c+"_"+d
+        f3 = c+d+d+"_"+c
+        f = f1,f2,f3
+        f = random.choice(f)
+        username = f
+
+    elif choice == "سداسيات":
+        c = str(''.join((random.choice(a) for i in range(1))))
+        d = str(''.join((random.choice(e) for i in range(1))))
+        f1 = c+c+c+d+d+d
+        f2 = c+c+d+d+d+c
+        f3 = c+d+d+d+c+c
+        f4 = c+d+c+d+c+d
+        f = f1,f2,f3,f4
+        f = random.choice(f)
+        username = f
+
+    elif choice == "سداسيات2":
+        c = str(''.join((random.choice(a) for i in range(1))))
+        d = str(''.join((random.choice(e) for i in range(1))))
+        f1 = c+d+c+d+d+c
+        f2 = c+d+d+c+c+d
+        f3 = c+c+d+d+c+d
+        f4 = c+d+c+c+d+d
+        f5 = c+c+d+c+d+d
+        f = f1,f2,f3,f4,f5
+        f = random.choice(f)
+        username = f
+        
+        elif choice == "سداسي":
+        c = str(''.join((random.choice(a) for i in range(1))))
+        d = str(''.join((random.choice(e) for i in range(1))))
+        f1 = c+c+d+d+d+d
+        f2 = c+d+d+d+d+c
+        f3 = c+d+c+c+d+d
+        f4 = c+c+c+c+d+d
+        f = f1,f2,f3,f4
+        f = random.choice(f)
+        username = f
+        
+    elif choice == "سداسي2":
+        c = str(''.join((random.choice(a) for i in range(1))))
+        d = str(''.join((random.choice(e) for i in range(1))))
+        f1 = c+d+c+d+d+d
+        f2 = c+d+d+c+d+d
+        f3 = c+d+c+c+d+c
+        f4 = c+c+d+c+d+c
+        f5 = c+d+c+c+c+d
+        f6 = c+d+d+c+c+c
+        f7 = c+c+c+d+d+c
+        f = f1,f2,f3,f4,f5,f6,f7
         f = random.choice(f)
         username = f
         
@@ -143,32 +205,18 @@ async def _(event):
 **-- -- -- -- -- -- -- -- --
  الانواع :
  -- -- -- -- - 
- سباعي
- sxxxxxx - s888888 - ssssss8
- -- -- -- -- -- -- -- -- -- -- --
-  ثماني
-  sxxxxxxx - sssssss7
- -- -- -- -- -- 
- ثمانيات
- s7777777 - mnnnnnnn
-  -- -- -- -- --  
- سباعيات
- xxccccc - xx88888
- -- -- -- -- --
- سداسي
- x_bbbbb - s_8888
- -- -- -- -- -- 
- بدايه
- c_888 - c_1cc - c_c1c - c_cc1
- -- -- -- -- -- 
- وسط
- sx_xx - sx_ss - ss_6s - ss_s7
- -- -- -- -- -- 
- خير
- axx_x - afa_a - aaf_a - aaa_x 
-  -- -- -- -- -- 
-  التجربه السورس 
-  `تيست`
+ ثلاثي - s_x_n [ ثلاثي عشوائي ]
+ مكرر -   s_x_s [ ثلاثي مكرر ]
+ رباعي - s_777 [ رباعي شخطه بدايه ]
+ رباعي2 - sx_ss [ رباعي شخطه وسط ]
+ رباعي3 - sss_o [ رباعي شخطه خير ]
+ رباعي4 - ss_xx [ رباعي شخطه نص ]
+ رباعي5 - x_xcc [ رباعي شخطه ابديه ]
+ رباعي6 - xxc_c [ رباعي شخطه خير ]
+ سداسيات - sssooo [ سداسيات 3 حروف مرتب ]
+ سداسيات2 - sxxssx [ سداسي 3 حروف عشوائي ]
+ سداسي - ssxxxx [ سداسي حرفين مرتب ]
+ تيست - [ تجربه السورس شغال ]
    -- -- -- -- -- 
    طريقه الصيد هيه كالتالي
  - .صيد + نوع الصيد تكتب الاسم 
@@ -208,8 +256,8 @@ async def hunterusername(event):
         try:
             ch = await eighthon(
                 functions.channels.CreateChannelRequest(
-                    title="صيد معرفات - @lllllj",
-                    about="تم الصيد - Selling IDs : @lllllj",
+                    title="صيد معرفات - Hunting IDs",
+                    about="تم الصيد المعرف - ID caught",
                 )
             )
             ch = ch.updates[1].channel_id
@@ -234,9 +282,8 @@ async def hunterusername(event):
                     )
                 )
                 await event.client.send_message(
-                    ch,
-                    "https://t.me/R_M_T/582",
-                    caption=f"⌯ تم الصيد اليوزر @{username}",
+                    event.chat_id,
+                    f"⌯ تم الصيد اليوزر @{username}",
                 )
                 break
             except telethon.errors.rpcerrorlist.UsernameInvalidError:

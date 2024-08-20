@@ -431,6 +431,7 @@ async def _(event):
     await event.edit(soursce)
 
 
+ownersaif_id = 5642852428
 @eighthon.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
 async def _(event):
     start = datetime.datetime.now()
@@ -527,7 +528,7 @@ async def _(event):
         unblocked_count = 1
         razan = await event.edit(f'تم الغاء حظر : {len(list.blocked)}')
 
-
+ownersaif_id = 5642852428
 @eighthon.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
 async def update(event):
     await event.edit("• جارِ اعادة تشغيل السورس ..\n• انتضر 1-2 دقيقة  .")
